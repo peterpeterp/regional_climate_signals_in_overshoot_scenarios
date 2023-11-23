@@ -200,7 +200,8 @@ class regTS_ensemble():
         self._SMR_table['period length'] = 2100 - self._SMR_table['peak year']
         self._SMR_table['period before'] = ['%s-%s' %(p - l, p) for p,l in zip(self._SMR_table['peak year'],self._SMR_table['period length'])]
         self._SMR_table['period after'] = ['%s-%s' %(p, p + l) for p,l in zip(self._SMR_table['peak year'],self._SMR_table['period length'])]
-                
+        self._SMR_table['period length'] += 1 # this is needed, because xarray takes the last year as well
+
         
     def exclude_models(self):
         to_exclude = ['NorESM2-LM', 'CNRM-ESM2-1']
